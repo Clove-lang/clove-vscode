@@ -1,0 +1,58 @@
+{
+    "name": "clove",
+    "displayName": "clove Syntax (official)",
+    "description": "Official clove Syntax - Developed by Timo Sarkar",
+    "version": "0.3.11",
+    "publisher": "clove-lang",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "engines": {
+        "vscode": "^1.5.0"
+    },
+    "homepage": "https://github.com/clove-lang/vscode-clove-syntax/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/clove-lang/vscode-clove-syntax.git"
+    },
+    "icon": "images/clove.png",
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "clove",
+                "aliases": [
+                    "clove",
+                    "clove"
+                ],
+                "extensions": [
+                    ".clove",
+                    ".clo",
+                    ".clovconf"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "clove",
+                "scopeName": "source.clove",
+                "path": "./syntaxes/clove.tmLanguage.json"
+            }
+        ]
+    },
+    "devDependencies": {
+        "@types/node": "^12.6.8",
+        "ajv": "^6.10.2",
+        "ts-node": "^8.3.0",
+        "tsc": "^1.20150623.0",
+        "typescript": "^3.5.3",
+        "vsce": "^1.66.0",
+        "vscode-tmgrammar-test": "0.0.5"
+    },
+    "scripts": {
+        "vscode:publish": "vsce publish --yarn",
+        "build": "ts-node src/typescript/GenerateTmLanguageFile.ts > ./syntaxes/clove.tmLanguage.json",
+        "test": "node scripts/unit.js && node scripts/snap.js"
+    }
+}
